@@ -1,8 +1,8 @@
-let arr = [2, 4, 6, 8, 10]
+const arr = [2, 4, 6, 8, 10];
+let sum = 0;
 
-for (let index = 0; index < array.length; index++) {
-    
-    arr[index] = arr[index] + arr[index] + 1
-    console.log(arr[index])
-    
+for (let i = 0; i < arr.length; i++) {
+  sum += arr[i];
 }
+
+console.log("總和是：", sum); // 總和是：30
