@@ -79,9 +79,9 @@
         }
     </style>
 </head>
-<body>
-    <div class="chat-container">        <div class="chat-header">
+<body>    <div class="chat-container">        <div class="chat-header">
             <h2>AI 聊天助理</h2>
+            <p style="font-size: 14px; margin: 5px 0 0 0;">由 Groq API 驅動</p>
         </div>
         <div class="chat-messages" id="chat-messages">
             <div class="message assistant">你好！請問有什麼可以幫助您的嗎？</div>
@@ -97,7 +97,7 @@
             const chatMessages = document.getElementById('chat-messages');
             const userInput = document.getElementById('user-input');
             const sendButton = document.getElementById('send-button');
-            const groqApiKey = ''; // API密钥已移除以保护安全
+            const groqApiKey = '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'; // 請在此處填入您的 Groq API 金鑰
 
             async function sendMessageToGroq(message) {
                 if (!groqApiKey) {
