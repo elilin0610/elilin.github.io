@@ -3,180 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>林祐陞 - 網頁設計課程作業</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        .info {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #7f8c8d;
-        }
-        .homework-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .homework-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
-        }
-        .homework-card h3 {
-            margin-top: 0;
-            color: #2c3e50;
-        }
-        .homework-card ul {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-        .homework-card li {
-            margin: 5px 0;
-        }
-        .homework-card a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        .homework-card a:hover {
-            text-decoration: underline;
-        }
-        .special-project {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-left: 4px solid #f39c12;
-        }
-        .special-project h3 {
-            color: white;
-        }
-        .special-project a {
-            color: #f1c40f;
-        }
-    </style>
+    <title>AI 聊天機器人</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>網頁設計課程作業</h1>
-        <div class="info">
-            <p><strong>學生：</strong>林祐陞 | <strong>學號末兩碼：</strong>36 | <strong>學期：</strong>113學年下學期</p>
-            <p><strong>教師：</strong>陳鍾誠 | <strong>學校：</strong>金門大學資訊工程系</p>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>AI 聊天助理</h2>
         </div>
-
-        <div class="homework-grid">
-            <!-- 期中專案 -->
-            <div class="homework-card special-project">
-                <h3>🤖 期中專案：AI 聊天機器人</h3>
-                <p>類似 ChatGPT 的 AI 聊天網站，使用 Groq API</p>
-                <ul>
-                    <li><a href="homework/midterm_project/index.html">🚀 體驗 AI 聊天機器人</a></li>
-                </ul>
-                <p><small>注意：需要在 script.js 中填入您的 Groq API 金鑰才能使用</small></p>
-            </div>
-
-            <!-- 作業 01 -->
-            <div class="homework-card">
-                <h3>📝 作業 01：自我介紹頁面</h3>
-                <ul>
-                    <li><a href="homework/01/self_introduce.html">自我介紹 (原創)</a></li>
-                    <li><a href="homework/01/copilot_ver.html">自我介紹 (Copilot 版本)</a></li>
-                    <li><a href="homework/01/README.md">說明文件</a></li>
-                </ul>
-            </div>
-
-            <!-- 作業 02 -->
-            <div class="homework-card">
-                <h3>📋 作業 02：註冊表單</h3>
-                <ul>
-                    <li><a href="homework/02/sign_upform.html">註冊表單</a></li>
-                </ul>
-            </div>
-
-            <!-- 作業 03 -->
-            <div class="homework-card">
-                <h3>💻 作業 03：JavaScript 基礎</h3>
-                <ul>
-                    <li><a href="homework/03/">JavaScript 練習檔案 (01.js ~ 10.js)</a></li>
-                </ul>
-            </div>
-
-            <!-- 作業 04 -->
-            <div class="homework-card">
-                <h3>🔧 作業 04：JavaScript 進階</h3>
-                <ul>
-                    <li><a href="homework/04/">JavaScript 進階練習 (01.js ~ 07.js)</a></li>
-                </ul>
-            </div>
-
-            <!-- 作業 05 -->
-            <div class="homework-card">
-                <h3>🌐 作業 05：個人網站 (Deno)</h3>
-                <ul>
-                    <li><a href="homework/05/personalSite.js">個人網站程式碼</a></li>
-                    <li><a href="homework/05/README.md">說明文件</a></li>
-                </ul>
-            </div>
-
-            <!-- 作業 06_07 -->
-            <div class="homework-card">
-                <h3>📰 作業 06_07：部落格系統 (Deno)</h3>
-                <ul>
-                    <li><a href="homework/06_07/blogApp.js">部落格應用程式</a></li>
-                    <li><a href="homework/06_07/addPosts.js">新增文章程式</a></li>
-                    <li><a href="homework/06_07/README.md">說明文件</a></li>
-                </ul>
-            </div>
-
-            <!-- 作業 08 -->
-            <div class="homework-card">
-                <h3>🐍 作業 08：Python 基礎</h3>
-                <ul>
-                    <li><a href="homework/08/">Python 練習檔案 (q1.py ~ q10.py)</a></li>
-                </ul>
-            </div>
-
-            <!-- 作業 09 -->
-            <div class="homework-card">
-                <h3>🚀 作業 09：FastAPI 部落格</h3>
-                <ul>
-                    <li><a href="homework/09/blogApp.py">FastAPI 部落格程式碼</a></li>
-                    <li><a href="homework/09/blogApp.js">Deno 版本 (參考)</a></li>
-                </ul>
-                <p><small>包含用戶註冊、登入、發文、刪除功能</small></p>
-            </div>
-
-            <!-- 學習筆記 -->
-            <div class="homework-card">
-                <h3>📚 學習筆記</h3>
-                <ul>
-                    <li><a href="mynote/git的用法.md">Git 使用方法</a></li>
-                    <li><a href="README.md">課程資訊</a></li>
-                </ul>
-            </div>
+        <div class="chat-messages" id="chat-messages">
+            <!-- 訊息會顯示在這裡 -->
+            <div class="message assistant">你好！請問有什麼可以幫助您的嗎？</div>
         </div>
-
-        <div style="text-align: center; margin-top: 30px; color: #7f8c8d;">
-            <p>📅 最後更新：2025年6月</p>
-            <p>🔗 GitHub 倉庫：<a href="https://github.com/elilin0610/elilin.github.io" style="color: #3498db;">https://github.com/elilin0610/elilin.github.io</a></p>
+        <div class="chat-input-area">
+            <input type="text" id="user-input" placeholder="在這裡輸入訊息...">
+            <button id="send-button">發送</button>
         </div>
     </div>
-</body>
+    <script src="script.js"></script></body>
 </html>
