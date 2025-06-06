@@ -54,50 +54,73 @@
             color: white;
             margin-left: auto;
         }
-        .chat-input-area {
+        .input-container {
             display: flex;
             gap: 10px;
         }
         #user-input {
-            flex-grow: 1;
+            flex: 1;
             padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 20px;
-            outline: none;
+            border-radius: 5px;
+            font-size: 16px;
         }
         #send-button {
             padding: 10px 20px;
             background-color: #007bff;
             color: white;
             border: none;
-            border-radius: 20px;
+            border-radius: 5px;
             cursor: pointer;
-            outline: none;
+            font-size: 16px;
         }
         #send-button:hover {
             background-color: #0056b3;
         }
+        .api-key-notice {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <div class="chat-container">        <div class="chat-header">
-            <h2>AI 聊天助理</h2>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>AI 聊天機器人</h1>
+            <p>由 Groq API 驱动</p>
         </div>
+        
+        <div class="api-key-notice">
+            <strong>注意：</strong> 为了安全考虑，此GitHub Pages版本不包含API密钥。<br>
+            如需使用完整功能，请下载源代码并在本地设置API密钥。
+        </div>
+        
         <div class="chat-messages" id="chat-messages">
-            <div class="message assistant">你好！請問有什麼可以幫助您的嗎？</div>
+            <div class="message assistant">
+                您好！我是 AI 助手，有什麼可以幫助您的嗎？
+            </div>
         </div>
-        <div class="chat-input-area">
-            <input type="text" id="user-input" placeholder="在這裡輸入訊息...">
-            <button id="send-button">發送</button>
+        
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="輸入您的訊息..." disabled>
+            <button id="send-button" disabled>發送</button>
         </div>
     </div>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const chatMessages = document.getElementById('chat-messages');
             const userInput = document.getElementById('user-input');
             const sendButton = document.getElementById('send-button');
             const groqApiKey = ''; // API密钥已移除以保护安全
+
+            // 显示API密钥缺失的消息
+            appendMessage('此演示版本不包含API密钥。要使用完整功能，请在本地环境中设置您的Groq API密钥。', 'assistant');
 
             async function sendMessageToGroq(message) {
                 if (!groqApiKey) {
@@ -114,14 +137,15 @@
                         headers: {
                             'Authorization': `Bearer ${groqApiKey}`,
                             'Content-Type': 'application/json'
-                        },                        body: JSON.stringify({
+                        },
+                        body: JSON.stringify({
                             messages: [
                                 {
                                     role: 'user',
                                     content: message
                                 }
                             ],
-                            model: 'llama-3.3-70b-versatile'
+                            model: 'mixtral-8x7b-32768'
                         })
                     });
 

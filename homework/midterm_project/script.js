@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             content: message
                         }
                     ],
-                    model: 'mixtral-8x7b-32768' // 您可以選擇適合的模型
+                    model: 'llama-3.3-70b-versatile' // 您可以選擇適合的模型
                 })
             });
 

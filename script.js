@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatMessages = document.getElementById('chat-messages');
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
-    const groqApiKey = ''; // 請在此處填入您的 Groq API 金鑰 - 已移除以保護安全性
+    const groqApiKey = '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'; // 請在此處填入您的 Groq API 金鑰 - 已移除以保護安全性
 
     async function sendMessageToGroq(message) {
         if (!groqApiKey) {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             content: message
                         }
                     ],
-                    model: 'mixtral-8x7b-32768' // 您可以選擇適合的模型
+                    model: 'llama-3.3-70b-versatile' // 您可以選擇適合的模型
                 })
             });
 
