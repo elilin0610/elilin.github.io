@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatMessages = document.getElementById('chat-messages');
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
-    const groqApiKey = ''; // 請在此處填入您的 Groq API 金鑰
+    const groqApiKey = ''; // 請在此處填入您的 Groq API 金鑰 - 已移除以保護安全性
 
     async function sendMessageToGroq(message) {
         if (!groqApiKey) {
