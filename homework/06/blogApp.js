@@ -1,5 +1,5 @@
 // Blog system with post creation functionality
-import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { Application, Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 import { DB } from "https://deno.land/x/sqlite/mod.ts";
 
 // Initialize database
@@ -18,7 +18,7 @@ const app = new Application();
 const router = new Router();
 
 // Serve static files
-import { send } from "https://deno.land/x/oak/mod.ts";
+import { send } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 
 // Helper function to format dates
 function formatDate(dateString) {
@@ -206,22 +206,30 @@ router
     </body>
     </html>
     `;
-  })
-  
-  // Create new post
+  })    // Create new post
   .post("/create", async (ctx) => {
-    const body = ctx.request.body();
-    
-    if (body.type === "form") {
-      const formData = await body.value;
+    try {
+      // 獲取表單數據
+      const formData = await ctx.request.body({ type: "form" }).value;
       const title = formData.get("title");
       const content = formData.get("content");
+      
+      // Validate data
+      if (!title || !content) {
+        ctx.response.status = 400;
+        ctx.response.body = "標題和內容不能為空";
+        return;
+      }
       
       // Insert new post into database
       db.query("INSERT INTO posts (title, content) VALUES (?, ?)", [title, content]);
       
       // Redirect to home page
       ctx.response.redirect("/");
+    } catch (error) {
+      console.error("發生錯誤:", error);
+      ctx.response.status = 500;
+      ctx.response.body = "伺服器內部錯誤：" + error.message;
     }
   });
 
