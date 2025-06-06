@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# SQLite databases
+*.db
+!homework/06_07/blog.db
+!homework/09/blog.db
