@@ -4,7 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 聊天機器人</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .chat-container {
+            width: 400px;
+            max-width: 90%;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .chat-header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin: -20px -20px 20px -20px;
+        }
+        .chat-messages {
+            min-height: 300px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #fafafa;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+        .message {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 15px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .assistant {
+            background-color: #e9e9eb;
+            color: #333;
+        }
+        .user {
+            background-color: #007bff;
+            color: white;
+            margin-left: auto;
+        }
+        .chat-input-area {
+            display: flex;
+            gap: 10px;
+        }
+        #user-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+        #send-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            outline: none;
+        }
+        #send-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="chat-container">
@@ -12,7 +85,6 @@
             <h2>AI 聊天助理</h2>
         </div>
         <div class="chat-messages" id="chat-messages">
-            <!-- 訊息會顯示在這裡 -->
             <div class="message assistant">你好！請問有什麼可以幫助您的嗎？</div>
         </div>
         <div class="chat-input-area">
@@ -20,5 +92,85 @@
             <button id="send-button">發送</button>
         </div>
     </div>
-    <script src="script.js"></script></body>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatMessages = document.getElementById('chat-messages');
+            const userInput = document.getElementById('user-input');
+            const sendButton = document.getElementById('send-button');
+            const groqApiKey = ''; // 請在此處填入您的 Groq API 金鑰
+
+            async function sendMessageToGroq(message) {
+                if (!groqApiKey) {
+                    appendMessage('請先在此頁面的 JavaScript 程式碼中設定您的 Groq API 金鑰。', 'assistant');
+                    return;
+                }
+
+                appendMessage(message, 'user');
+                userInput.value = '';
+
+                try {
+                    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${groqApiKey}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            messages: [
+                                {
+                                    role: 'user',
+                                    content: message
+                                }
+                            ],
+                            model: 'mixtral-8x7b-32768'
+                        })
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        console.error('Groq API 錯誤:', errorData);
+                        appendMessage(`API 錯誤: ${errorData.error?.message || response.statusText}`, 'assistant');
+                        return;
+                    }
+
+                    const data = await response.json();
+                    if (data.choices && data.choices.length > 0) {
+                        const assistantMessage = data.choices[0].message.content;
+                        appendMessage(assistantMessage, 'assistant');
+                    } else {
+                        appendMessage('抱歉，我沒有得到回應。', 'assistant');
+                    }
+                } catch (error) {
+                    console.error('與 Groq API 通訊時發生錯誤:', error);
+                    appendMessage('抱歉，與伺服器通訊時發生問題。', 'assistant');
+                }
+            }
+
+            function appendMessage(text, sender) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', sender);
+                messageElement.textContent = text;
+                chatMessages.appendChild(messageElement);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            sendButton.addEventListener('click', () => {
+                const message = userInput.value.trim();
+                if (message) {
+                    sendMessageToGroq(message);
+                }
+            });
+
+            userInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') {
+                    const message = userInput.value.trim();
+                    if (message) {
+                        sendMessageToGroq(message);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
 </html>
