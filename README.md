@@ -1,29 +1,23 @@
-# 林祐陞 - 網頁設計課程作業集
+# FINAL 手冊
 
-## 課程資訊
+## hw01.
++ 程式碼是自己寫的
 
-欄位 | 內容
------|--------
-學期 | 113 學年下學期
-學生 | 林祐陞
-學號末兩碼 | 36
-教師 | [陳鍾誠](https://www.nqu.edu.tw/educsie/index.php?act=blog&code=list&ids=4)
-學校科系 | [金門大學資訊工程系](https://www.nqu.edu.tw/educsie/index.php)
-課程教材 | https://github.com/ccc113b/html2server <br/> https://www.w3schools.com/
 
-## 網站連結
+## HM2. 
++ 參考自111010141胡佳慧的作業，進一步完成的
 
-🌐 **主網站：** https://elilin0610.github.io/
 
-## 專案說明
+## HM3.
++ 程式碼是自己寫的
++ 請注意，這個程式碼無法動態擴增使用者，這些使用者在執行時，就已經靜態決定了
 
-此倉庫包含網頁設計課程的所有作業，包括：
 
-- 📝 HTML/CSS 基礎練習
-- 💻 JavaScript 程式設計
-- 🐍 Python 程式設計 
-- 🌐 Deno 網站開發
-- 🚀 FastAPI 應用程式
-- 🤖 AI 聊天機器人 (期中專案)
+## HM4. 
++ 程式碼是自己寫的
 
-詳細內容請訪問主網站瀏覽。
+
+## MainPage.html & server.js
++ 這個專案的目的是整合HM1~4，並且在不修改所有作業的路徑前提下完成
++ MainPage主要渲染整個網頁畫面
++ server.js透過動態載入HM的方式，讓使用者可以透過超連結進入道不同作業當中
