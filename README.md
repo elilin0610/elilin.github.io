@@ -2,7 +2,8 @@
 
 ## 作業都在homework資料夾中
 ## hw01.
-+ 有用githubCopilot
++ copilot_ver.html 有用githubCopilot
++ self_introduce.html 是自己寫的
 
 ## hw02. 
 + 有用githubCopilot
