@@ -16,11 +16,9 @@
 ## hw05. 
 + 有用githubCopilot
 
-## hw06. 
+## hw06和07
 + 有用githubCopilot
-
-## hw07. 
-+ 有用githubCopilot
++ 因為06已經有顯示時間，所以合併起來
 
 ## hw08. 
 + 有用githubCopilot
