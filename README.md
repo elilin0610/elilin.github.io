@@ -1,20 +1,33 @@
 # FINAL 手冊
 
+## 作業都在homework資料夾中
 ## hw01.
-+ 程式碼是自己寫的
++ 有用githubCopilot
 
+## hw02. 
++ 有用githubCopilot
 
-## HM2. 
-+ 參考自111010141胡佳慧的作業，進一步完成的
+## hw03.
++ 有用githubCopilot
+  
+## hw04. 
++ 有用githubCopilot
 
+## hw05. 
++ 有用githubCopilot
 
-## HM3.
-+ 程式碼是自己寫的
-+ 請注意，這個程式碼無法動態擴增使用者，這些使用者在執行時，就已經靜態決定了
+## hw06. 
++ 有用githubCopilot
 
+## hw07. 
++ 有用githubCopilot
 
-## HM4. 
-+ 程式碼是自己寫的
+## hw08. 
++ 有用githubCopilot
+
+## hw09. 
++ 有用githubCopilot
+
 
 
 ## MainPage.html & server.js
