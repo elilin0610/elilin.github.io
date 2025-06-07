@@ -28,7 +28,8 @@
 
 
 
-## MainPage.html & server.js
-+ 這個專案的目的是整合HM1~4，並且在不修改所有作業的路徑前提下完成
-+ MainPage主要渲染整個網頁畫面
-+ server.js透過動態載入HM的方式，讓使用者可以透過超連結進入道不同作業當中
+## 期中專案是呼叫GroqAPI的聊天機器人
++ 期中專案只有用到 index.html
++ css和js都內嵌在html裡面
++ 這是期中專案的網址 https://elilin0610.github.io/
+  
